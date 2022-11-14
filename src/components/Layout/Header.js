@@ -3,6 +3,7 @@ import classes from './Header.module.css';
 import headerImage from '../../assets/header.png';
 import HeaderCartButton from "./HeaderCartButton";
 
+
 const Header = (props) => {
   return <Fragment>
     <header className={classes.header}>
@@ -12,6 +13,7 @@ const Header = (props) => {
     <div className={classes['main-image']}>
       <img src={headerImage} alt="Website's header" />
     </div>
+
   </Fragment>
 
 };
