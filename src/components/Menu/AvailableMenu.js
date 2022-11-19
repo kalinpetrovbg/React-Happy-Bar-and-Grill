@@ -1,38 +1,40 @@
+import { useEffect, useState } from 'react';
+
 import Card from '../UI/Card'
 import MenuItem from './MenuItem';
 import classes from './AvailableMenu.module.css';
 
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Sushi',
-    description: 'Finest fish and veggies',
-    price: 22.99,
-  },
-  {
-    id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
-    price: 16.5,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    price: 12.99,
-  },
-  {
-    id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
-    price: 18.99,
-  },
-];
+
 
 
 const AvailableMenu = () => {
 
-  const menuList = DUMMY_MEALS.map((item) => (
+  const [menu, setMenu] = useState([]);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      const response = await fetch('https://happy-bar-and-grill-default-rtdb.europe-west1.firebasedatabase.app/menu.json');
+      const responseData = await response.json();
+
+      const loadedMenu = [];
+
+      for (const key in responseData) {
+        loadedMenu.push({
+          id: key,
+          name: responseData[key].name,
+          price: responseData[key].price,
+          description: responseData[key].weight
+        });
+      }
+      setMenu(loadedMenu);
+      console.log(loadedMenu);
+    };
+
+    fetchMenu();
+  }, []);
+
+
+  const menuList = menu.map((item) => (
     <MenuItem
       id={item.id}
       key={item.id}
