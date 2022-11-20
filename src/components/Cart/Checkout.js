@@ -1,31 +1,57 @@
+import { useRef } from 'react';
 import classes from './Checkout.module.css';
 
+const isEmpty = (value) => value.trim() === ''
 
 const Checkout = () => {
-  return <form className={classes.action}>
+
+  const nameInput = useRef();
+  const emailInput = useRef();
+  const addressInput = useRef();
+  const phoneInput = useRef();
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const enteredData = {
+      name: nameInput.current.value,
+      email: emailInput.current.value,
+      address: addressInput.current.value,
+      phone: phoneInput.current.value
+    }
+
+
+    const enteredInvalidData = isEmpty(enteredData.name)
+      || isEmpty(enteredData.address)
+
+    if (enteredInvalidData) {
+      const allerMessage = <p>Please enter a valid data.</p>
+    }
+
+  };
+
+
+  return <form onSubmit={submitHandler}>
     <div className={classes.control}>
       <label htmlFor="name">Your name</label>
-      <input type="text" id="name" />
+      <input type="text" id="name" ref={nameInput} />
     </div>
     <div className={classes.control}>
-      <label htmlFor="street">Street</label>
-      <input type="text" id="street" />
+      <label htmlFor="email">Email</label>
+      <input type="email" id="email" ref={emailInput} />
     </div>
     <div className={classes.control}>
-      <label htmlFor="postcode">Post code</label>
-      <input type="text" id="postcode" />
+      <label htmlFor="address">Address</label>
+      <input type="text" id="address" ref={addressInput} />
     </div>
     <div className={classes.control}>
-      <label htmlFor="city">City</label>
-      <input type="text" id="city" />
+      <label htmlFor="city">Phone</label>
+      <input type="tel" minLength="10" maxLength="10" id="phone" ref={phoneInput} />
     </div>
-    <button className='{}'>Place Order</button>
-
-
-
-
+    <div className={classes.actions}>
+      <button className={classes.submit}>Place Order</button>
+    </div>
   </form>
 }
-
 
 export default Checkout;
