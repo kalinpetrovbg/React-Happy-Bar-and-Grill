@@ -4,6 +4,7 @@ import classes from './Cart.module.css';
 import Modal from '../UI/Modal';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
+import Checkout from './Checkout';
 
 
 const Cart = (props) => {
@@ -44,6 +45,7 @@ const Cart = (props) => {
       <button className={classes['button--alt']} onClick={props.onClose}>Close</button>
       {hasItems && <button className={classes.button}>Order</button>}
     </div>
+    <Checkout />
   </Modal>
 
 };
