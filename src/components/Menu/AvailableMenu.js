@@ -12,7 +12,7 @@ const AvailableMenu = () => {
 
   useEffect(() => {
     const fetchMenu = async () => {
-      const response = await fetch('https://happy-bar-and-grill-default-rdtdb.europe-west1.firebasedatabase.app/menu.json  ');
+      const response = await fetch('https://happy-bar-and-grill-default-rtdb.europe-west1.firebasedatabase.app/menu.json  ');
 
 
       if (!response.ok) {
