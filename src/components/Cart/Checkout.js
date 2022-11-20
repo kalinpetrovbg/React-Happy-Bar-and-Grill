@@ -2,7 +2,7 @@ import classes from './Checkout.module.css';
 
 
 const Checkout = () => {
-  return <form>
+  return <form className={classes.action}>
     <div className={classes.control}>
       <label htmlFor="name">Your name</label>
       <input type="text" id="name" />
@@ -19,7 +19,7 @@ const Checkout = () => {
       <label htmlFor="city">City</label>
       <input type="text" id="city" />
     </div>
-    <button>Place Order</button>
+    <button className='{}'>Place Order</button>
 
 
 
