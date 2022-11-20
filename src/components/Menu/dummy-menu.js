@@ -1,26 +1,5 @@
-const DUMMY_MEALS = [
-  {
-    id: 'm1',
-    name: 'Sushi',
-    description: 'Finest fish and veggies',
-    price: 22.99,
-  },
-  {
-    id: 'm2',
-    name: 'Schnitzel',
-    description: 'A german specialty!',
-    price: 16.5,
-  },
-  {
-    id: 'm3',
-    name: 'Barbecue Burger',
-    description: 'American, raw, meaty',
-    price: 12.99,
-  },
-  {
-    id: 'm4',
-    name: 'Green Bowl',
-    description: 'Healthy...and green...',
-    price: 18.99,
-  },
-];
+const DUMMY_MEALS = [null,
+  { "description": "340 г", "name": "Крехки каренца с ориз", "price": 12.99 },
+  { "description": "320 г", "name": "Хепи късчета с гарнитура", "price": 13.99 },
+  { "description": 300, "name": "Шарено месце", "price": 13.99 },
+  { "description": 300, "name": "Пилешки пръчици с пържени картофки", "price": 12.49 }]
