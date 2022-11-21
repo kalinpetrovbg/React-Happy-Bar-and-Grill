@@ -41,6 +41,10 @@ const Cart = (props) => {
     setIsCheckout(true);
   };
 
+  const submitOrderHandler = (userData) => {
+
+  }
+
   return <Modal onClose={props.onClose}>
     {cartitems}
     <div className={classes.Total}>
